@@ -1,0 +1,7 @@
+{
+  "name": "climaMaster",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

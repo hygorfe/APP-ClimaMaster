@@ -1,0 +1,67 @@
+<ion-menu contentId="main-content">
+  <ion-content class="ion-padding" [fullscreen]="true" class="ion-content-menu">
+    <div class="profile">
+      <div class="circle">
+        <ion-icon name="person-circle-sharp"></ion-icon>
+      </div>
+      <div class="name-link">
+        <span>Anônimo</span>
+        <a href="#">Fazer login</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-content">
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar color="transparent">
+        <div class="buttons">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <button id="openModal" class="btn-local">{{cidade}}</button>
+          <button class="map">
+            <ion-icon class="map-icon" name="earth-sharp"></ion-icon>
+          </button>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+
+  <div class="container-desc">
+    <div class="sensation-term" *ngIf="clima">
+      <p class="sensation-number" *ngIf="clima.main?.temp">{{ clima.main?.temp | number: '1.0-0' }}°</p>
+      <img *ngIf="clima.weather[0]?.icon" [src]="getIconUrl(clima.weather[0]?.icon)" alt="Ícone do tempo">
+    </div>
+    <div class="description-container">
+      <div class="description" *ngIf="clima">
+        <ion-icon class="cloud" name="cloud-outline"></ion-icon>
+        <p>{{ clima.weather[0]?.description }}</p>
+      </div>
+      <div class="sensation" *ngIf="clima">
+        <ion-icon name="flame-outline"></ion-icon>
+        <p class="sensation-number" *ngIf="clima.main?.temp">Sensação: {{ clima.main?.temp | number: '1.0-0' }}°</p>
+      </div>
+      <div class="time">
+        <ion-icon name="sync-outline"></ion-icon>
+        <div class="week" *ngIf="dayOfWeek">
+          <p>{{dayOfWeek}},</p>
+        </div>
+        <div class="hour" *ngIf="localTime">
+          <p>{{ localTime }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-container">
+      <ion-searchbar [(ngModel)]="cidade" (ionChange)="onCityChange($event)" class="custom" placeholder="Pesquisar"></ion-searchbar>
+      <div class="traco"></div>
+    </div>
+  </div>
+
+  <img class="img-bottom" src="assets/img/street-miami-with-hotels-sand-beach_107791-2431.jpg" alt="Imagem">
+</ion-content>
+
