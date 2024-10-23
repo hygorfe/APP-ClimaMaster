@@ -91,10 +91,14 @@
     flex-direction: column;
     row-gap: 5px;
 }
-
+.name-link a{
+    text-decoration: none;
+    color: #fff;
+    
+}
 .modal {
     position: absolute;
-    display: none; 
+    display: flex; 
     justify-content: center;
     top: -250px;
     width: 100%;
@@ -104,7 +108,7 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: 0 auto;
-    transition: top 0.8s ease;
+    transition: top 0.8s ease-in-out;
     z-index: 1000;
   }
   
@@ -121,6 +125,11 @@
 .custom{
     --background: #dbdbdbff;
     --color: #313131;
+    opacity: 1;
+}
+
+.custom.hidden{
+    opacity: 0;
 }
 
 .traco{
@@ -150,7 +159,7 @@
 
 
 .btn-local{
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 600;
 }
 

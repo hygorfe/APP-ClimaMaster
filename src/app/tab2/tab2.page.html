@@ -1,18 +1,89 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar color="transparent">
+    <ion-title>Previsão para Hoje</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true" class="content">
+  <div class="previsao-icon">
+    <div class="icon-div" *ngIf="madrugadaForecast">
+      <img [src]="getIconUrl(madrugadaForecast.weather[0].icon)" alt="Ícone do tempo">
+      <h2>Madrugada</h2>
+    </div>
+    <div  class="icon-div"*ngIf="morningForecast">
+      <img [src]="getIconUrl(morningForecast.weather[0].icon)"
+      alt="Icone do tempo">
+      <h2>Manhã</h2>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="icon-div" *ngIf="eveningForecast">
+      <img [src]="getIconUrl(eveningForecast.weather[0].icon)"
+      alt="Icone do tempo">
+      <h2>Tarde</h2>
+    </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <div class="icon-div" *ngIf="afternoonForecast">
+      <img [src]="getIconUrl(afternoonForecast.weather[0].icon)"
+      alt="Icone do tempo">
+      <h2>Noite</h2>
+    </div>
+  </div>
+
+  <div class="variaveis" *ngIf="eveningForecast">
+    <h2>Variáveis</h2>
+    <div class="temp">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-temperature-high"></i>
+        </div>
+        <p>Temperatura</p>
+      </div>
+      <span>{{ eveningForecast.main.temp }}°</span>
+    </div>
+    <div class="rain">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-cloud-showers-heavy"></i>
+        </div>
+        <p>Chuva</p>
+      </div>
+      <span>{{ getRainVolume(eveningForecast) }}</span>
+    </div>
+    <div class="pression">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <p>Pressão</p>
+      </div>
+      <span>{{eveningForecast.main.pressure }} hPa</span>
+    </div>
+    <div class="humidity">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+        <p>Humidade</p>
+      </div>
+      <span> {{ eveningForecast.main.humidity }} %</span>
+    </div>
+    <div class="wind">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-wind"></i>
+      </div>
+      <p>Vento</p>
+      </div>
+      <span>ENE - {{ eveningForecast.wind.speed }} km/h</span>
+    </div>
+    <div class="storm">
+      <div class="icon">
+        <div class="icon-item">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <p>Raios</p>
+      </div>
+      <span>{{getLightningProbability(eveningForecast)}}</span>
+    </div>
+  </div>
 </ion-content>

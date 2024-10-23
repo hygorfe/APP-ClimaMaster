@@ -1,3 +1,4 @@
+import { SharedService } from './../services/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { ClimatempoService } from './../services/climatempo.service';
 
@@ -12,7 +13,7 @@ export class Tab1Page implements OnInit {
   localTime: string | null = null;
   dayOfWeek: string | null = null;
 
-  constructor(private climatempoService: ClimatempoService) {}
+  constructor(private climatempoService: ClimatempoService, private sharedService: SharedService) {}
 
   ngOnInit() {
     this.getWeatherData();
@@ -23,6 +24,7 @@ export class Tab1Page implements OnInit {
   onCityChange(event: any){
     this.cidade = event.target.value;
     this.getWeatherData();
+    this.sharedService.changeCity(this.cidade);
   }
 
 
@@ -57,26 +59,32 @@ export class Tab1Page implements OnInit {
 
   initModal() {
       const openModalButton = document.querySelector('#openModal') as HTMLButtonElement;
-      const openModal = document.querySelector('.btn-local')
       const modal = document.querySelector('#modal') as HTMLDivElement;
+      const searchInput = document.querySelector('.custom') as HTMLIonSearchbarElement;
 
       openModalButton.addEventListener('click', () =>{
         modal.classList.toggle('active')
+        searchInput.classList.remove('hidden')
+
       })
 
-      window.addEventListener('click', (e)=>{
+      window.addEventListener('click', (e) => {
         const target = e.target as HTMLElement;
-        if(target == modal){
-          modal.classList.remove('active')
+        if (!modal.contains(target) && target !== openModalButton) {
+          modal.classList.remove('active');
+          searchInput.classList.add('hidden')
         }
       });
-
-      const searchInput = document.querySelector('.custom') as HTMLIonSearchbarElement;
-      searchInput.addEventListener('keydown', (event: KeyboardEvent) =>{
-        if(event.key === 'ENTER'){
+      
+      searchInput.addEventListener('keydown', (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
           this.getWeatherData();
+          modal.classList.remove('active');
+          searchInput.classList.add('hidden')
+        }else{
+          searchInput.classList.remove('hidden')
         }
-      })
+      });
 
 
   }

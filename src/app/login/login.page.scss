@@ -1,0 +1,82 @@
+.content {
+    --background: #084D6E;
+    text-align: center;
+}
+
+.content .title{
+    margin-top: 40%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    margin-top: 20%;
+    width: 100%;
+}
+
+
+.box .loginEmail{
+    gap: 20px;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+.loginEmail ion-icon{
+    margin-right: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.box .loginEmailG{
+    gap: 20px;
+    width: 100%;
+    height: 40px;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+.box .loginEmailG p{
+    color: #fff;
+    font-weight: 600;
+}
+
+.loginEmailG ion-icon{
+    margin-right: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.traco{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.traco span{
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+
+.cadastro{
+    margin-top: 20px;
+}
+
+.cadastro a{
+    text-decoration: none;
+    
+}
+.cadastro p{
+    margin: 0;
+}

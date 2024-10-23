@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" class="color">
+  <ion-toolbar color="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastrar Usuário</ion-title >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <div class="box-container">
+    <div class="box">
+      <ion-input label="Nome" aria-label="primary" color="primary" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    </div>
+    <div class="box">
+      <ion-input label="Email" aria-label="primary" color="primary" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    </div>
+    <div class="box">
+      <ion-input label="Senha" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    </div>
+
+    <div class="btn">
+    <ion-button class="btnEntrar" expand="full">
+      Cadastre-se
+    </ion-button>
+    </div>
+  </div>
+</ion-content>

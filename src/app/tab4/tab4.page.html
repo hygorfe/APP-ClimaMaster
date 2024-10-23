@@ -1,0 +1,44 @@
+<ion-header [translucent]="true" style="background-color: #084D6E;">
+  <ion-toolbar color="#084D6E">
+    <ion-title>Próximos 7 dias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <div class="dayWeek" *ngIf="dailyForecast.length > 0">
+    <div class="day" *ngFor="let forecast of dailyForecast">
+      <div class="nameWeek">
+        <h2>{{ getDayOfWeekShort(forecast.date)}}</h2>
+          <p>{{getDayMonth(forecast.date)}}</p>
+      </div>
+      <div class="icon">
+        <img [src]="getIconUrl(forecast.weather[0].icon)" alt="Ícone">
+      </div>
+      <div class="temp">
+        <p>{{ forecast.main.temp }}°C</p>
+      </div>
+      <div class="rain">
+        <p>{{forecast.main.humidity}}%</p>
+        <div class="icon-rain">
+          <i class="fa-solid fa-droplet"></i>
+          <i class="fa-solid fa-droplet"></i>
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="dailyForecast.length === 0">
+    <p>Nenhuma previsão disponível.</p>
+  </div>
+</ion-content>
+
+    <!-- <ion-list *ngIf="dailyForecast.length > 0">
+      <ion-item *ngFor="let forecast of dailyForecast">
+        <ion-label>
+          <h2>{{ forecast.date | date: 'fullDate' }}</h2>
+          <p>Temperatura: {{ forecast.main.temp }}°C</p>
+          <p>Descrição: {{ forecast.weather[0].description }}</p>
+          <img [src]="getIconUrl(forecast.weather[0].icon)" alt="Ícone do tempo">
+        </ion-label>
+      </ion-item>
+    </ion-list> -->

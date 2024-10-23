@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border" color="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <ion-title>
+    <h2 class="title">CLIMAMASTER</h2>
+  </ion-title>
+  <div class="box">
+    
+    <ion-button class="loginEmail" size="small" slot="start" expand="full" [routerLink]="['/login-u']">
+      <ion-icon name="mail"></ion-icon>
+      <p>Faça Login para entrar</p>
+    </ion-button>
+
+    <div class="traco">
+      <span></span>
+      <p>ou</p>
+      <span></span>
+    </div>
+
+    <ion-button class="loginEmailG" color="danger" size="small" slot="start" expand="full" [routerLink]="['/loginEmail']">
+      <ion-icon name="logo-google"></ion-icon>
+      <p>Continuar com o Gmal</p>
+    </ion-button>
+  </div>
+
+  <div class="cadastro">
+  <a [routerLink]="['/cadastro']" >Não tem uma conta?
+  <p>Cadastre-se</p>
+  </a>
+  </div>
+    
+
+
+</ion-content>

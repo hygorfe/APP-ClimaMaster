@@ -1,0 +1,175 @@
+ion-title{
+    text-align: center;
+}
+
+
+.content{
+    --background:#084D6E;
+}
+
+
+.previsao-icon{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-div h2{
+    font-size: 14px;
+}
+
+
+.variaveis{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.variaveis .temp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.temp .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.temp .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D76464;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+.variaveis .rain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.rain .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.rain .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CFCCCC;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+.variaveis .pression{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.pression .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.pression .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DADFA2;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+.variaveis .wind{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.wind .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.wind .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DADFA2;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+.variaveis .humidity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.humidity .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.humidity .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8AC1E3;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+.variaveis .storm{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.storm .icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.storm .icon .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEDE4B;
+    width: 35px;
+    height: 35px;
+    color: black;
+    border-radius: 9px;
+}
+
+

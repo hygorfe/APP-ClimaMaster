@@ -1,0 +1,49 @@
+.content{
+    --background:#084D6E;
+}
+
+
+ion-title{
+    text-align: center;
+}
+
+.dayWeek{
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dayWeek .day{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.dayWeek .nameWeek{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(190, 190, 190);
+}
+.dayWeek .nameWeek p{
+    font-size: 12px;
+    color: grey;
+}
+.dayWeek .nameWeek h2{
+    color: black;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.dayWeek .nameWeek h2, .dayWeek .nameWeek p{
+    margin: 0;
+}
+
