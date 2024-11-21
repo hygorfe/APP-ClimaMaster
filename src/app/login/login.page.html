@@ -12,25 +12,25 @@
   </ion-title>
   <div class="box">
     
-    <ion-button class="loginEmail" size="small" slot="start" expand="full" [routerLink]="['/login-u']">
+    <ion-button class="loginEmail" size="small" slot="start" expand="full" [routerLink]="['../login-u']">
       <ion-icon name="mail"></ion-icon>
       <p>Faça Login para entrar</p>
     </ion-button>
 
-    <div class="traco">
+    <!-- <div class="traco">
       <span></span>
       <p>ou</p>
       <span></span>
     </div>
 
-    <ion-button class="loginEmailG" color="danger" size="small" slot="start" expand="full" [routerLink]="['/loginEmail']">
+    <ion-button class="loginEmailG" color="danger" size="small" slot="start" expand="full" [routerLink]="['./login-gmail']">
       <ion-icon name="logo-google"></ion-icon>
       <p>Continuar com o Gmal</p>
-    </ion-button>
+    </ion-button> -->
   </div>
 
   <div class="cadastro">
-  <a [routerLink]="['/cadastro']" >Não tem uma conta?
+  <a [routerLink]="['../cadastro']" >Não tem uma conta?
   <p>Cadastre-se</p>
   </a>
   </div>

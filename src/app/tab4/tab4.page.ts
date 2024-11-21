@@ -47,7 +47,7 @@ export class Tab4Page implements OnInit {
 
 
   getIconUrl(iconCode: string): string {
-    return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
   }
 
   getDayOfWeekShort(dateString: string): string{

@@ -1,3 +1,6 @@
+import { Tab1Page } from './../tab1/tab1.page';
+import { Router } from '@angular/router';
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  constructor() { }
+ constructor(){}
 
   ngOnInit() {
   }

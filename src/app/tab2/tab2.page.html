@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="transparent">
+<ion-header [translucent]="true" style="background-color: #084D6E;">
+  <ion-toolbar color="#084D6E">
     <ion-title>Previsão para Hoje</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -83,7 +83,7 @@
         </div>
         <p>Raios</p>
       </div>
-      <span>{{getLightningProbability(eveningForecast)}}</span>
+      <span>{{ eveningForecast ? getLightningProbability(eveningForecast) : 'Dados indisponíveis' }}</span>
     </div>
   </div>
 </ion-content>

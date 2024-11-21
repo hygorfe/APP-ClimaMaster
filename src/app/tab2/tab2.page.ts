@@ -80,8 +80,9 @@ export class Tab2Page implements OnInit {
   }
 
   getIconUrl(iconCode: string): string {
-    return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
   }
+  
 
   
   getRainVolume(forecast: any): string {
@@ -91,10 +92,14 @@ export class Tab2Page implements OnInit {
   getPressure(forecast: any): number{
     return forecast.main.pressure;
   }
-
-  getLightningProbability(forecast: any): string{
-    return forecast.weather.some((condition: any) => condition.main === 'Thunderstorm') ? 'Alta' : 'Nenhuma Probabilidade'
+  getLightningProbability(forecast: any): string {
+    console.log('Forecast:', forecast); // Verificar a estrutura dos dados de previsão
+    return forecast.weather.some((condition: any) => {
+      console.log('Condition:', condition); // Verificar cada condição individual
+      return condition.main === 'Thunderstorm';
+    }) ? 'Alta' : 'Nenhuma Probabilidade';
   }
+  
 
 }
  

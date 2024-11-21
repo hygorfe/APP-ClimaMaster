@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="color">
   <ion-toolbar color="transparent">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/login"></ion-back-button>
+      <ion-back-button defaultHref="/login"></ion-back-button>
     </ion-buttons>
     <ion-title>Login</ion-title >
   </ion-toolbar>
@@ -10,19 +10,20 @@
 <ion-content [fullscreen]="true" class="content">
   <div class="box-container">
     <div class="box">
-      <ion-input label="Email" aria-label="primary" color="primary" label-placement="floating" fill="outline" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="email" label="Email" type="email" aria-label="primary" color="primary" label-placement="floating" fill="outline" placeholder=""></ion-input>
     </div>
     <div class="box">
-      <ion-input label="Senha" label-placement="floating" fill="outline" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="password" label="Senha" type="password" label-placement="floating" fill="outline" placeholder=""></ion-input>
     </div>
 
     <div class="btn">
-    <ion-button class="btnEntrar" expand="full">
+    <ion-button class="btnEntrar" (click)="login()" expand="full">
       Entrar
     </ion-button>
+    <ion-text color="danger" *ngIf="errorMessage"><p>{{errorMessage}}</p></ion-text>
     </div>
     <div class="cadastro">
-      <a [routerLink]="['/cadastro']" >Não tem uma conta? Cadastre-se
+      <a [routerLink]="['../cadastro']" >Não tem uma conta? Cadastre-se
       </a>
       </div>
   </div>

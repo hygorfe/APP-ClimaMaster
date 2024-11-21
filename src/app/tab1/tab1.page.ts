@@ -1,6 +1,9 @@
 import { SharedService } from './../services/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { ClimatempoService } from './../services/climatempo.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -12,12 +15,29 @@ export class Tab1Page implements OnInit {
   clima: any;
   localTime: string | null = null;
   dayOfWeek: string | null = null;
+  displayName: string = 'Anônimo';
+  isLoggedIn: boolean = false;
 
-  constructor(private climatempoService: ClimatempoService, private sharedService: SharedService) {}
+  constructor(private climatempoService: ClimatempoService, private sharedService: SharedService, private afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.getWeatherData();
     this.initModal();
+    this.openModalInit();
+
+    this.afAuth.authState.subscribe(user =>{
+      if(user){
+        this.displayName = user.displayName || 'Anônimo';
+        this.isLoggedIn = true;
+      }else{
+        this.displayName = 'Anônimo';
+        this.isLoggedIn = false;
+      }
+    })
+  }
+  async logout() {
+    await this.authService.logout();
+    this.router.navigate(['/tab1'])
   }
 
 
@@ -54,40 +74,66 @@ export class Tab1Page implements OnInit {
   }
 
   getIconUrl(iconCode: string): string {
-    return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
   }
 
   initModal() {
-      const openModalButton = document.querySelector('#openModal') as HTMLButtonElement;
-      const modal = document.querySelector('#modal') as HTMLDivElement;
-      const searchInput = document.querySelector('.custom') as HTMLIonSearchbarElement;
-
-      openModalButton.addEventListener('click', () =>{
-        modal.classList.toggle('active')
-        searchInput.classList.remove('hidden')
-
-      })
-
+    const openModalButton = document.querySelector('#openModal') as HTMLButtonElement;
+    const modal = document.querySelector('#modal') as HTMLDivElement;
+    const searchInput = document.querySelector('.custom') as HTMLIonSearchbarElement;
+  
+    if (openModalButton && modal && searchInput) {
+      openModalButton.addEventListener('click', () => {
+        modal.classList.toggle('active');
+        searchInput.classList.remove('hidden');
+        searchInput.style.opacity = '1';
+      });
+  
       window.addEventListener('click', (e) => {
         const target = e.target as HTMLElement;
-        if (!modal.contains(target) && target !== openModalButton) {
+        if (modal instanceof Node && openModalButton instanceof Node && !modal.contains(target) && target !== openModalButton) {
           modal.classList.remove('active');
-          searchInput.classList.add('hidden')
         }
       });
-      
+
+    
       searchInput.addEventListener('keydown', (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
           this.getWeatherData();
           modal.classList.remove('active');
-          searchInput.classList.add('hidden')
-        }else{
-          searchInput.classList.remove('hidden')
         }
       });
-
-
+    } else {
+      console.error('One or more DOM elements not found');
+    }
+    
   }
+
+
+  openModalInit() {
+    const modalMap = document.querySelector('#modalMap') as HTMLDivElement;
+    const activeModal = document.querySelector('#activeModal') as HTMLButtonElement;
+  
+    if (activeModal && modalMap) {
+      activeModal.addEventListener('click', () => {
+        console.log('Botão de modal clicado');
+        modalMap.classList.toggle('open');
+        console.log('Classes do modalMap:', modalMap.classList);
+      });
+    } else {
+      console.error('Elementos activeModal ou modalMap não foram encontrados');
+    }
+  
+    window.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      console.log('Clique detectado', target);
+      if (modalMap instanceof Node && target instanceof Node && !modalMap.contains(target) && target !== activeModal) {
+        modalMap.classList.remove('open');
+        console.log('Fechou modal');
+      }
+    });
+  }
+  
   
 
 }

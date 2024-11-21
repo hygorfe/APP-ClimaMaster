@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { LoginUPageRoutingModule } from './login-u-routing.module';
-
+import { RouterModule } from '@angular/router';
 import { LoginUPage } from './login-u.page';
 
 @NgModule({
@@ -13,7 +10,7 @@ import { LoginUPage } from './login-u.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginUPageRoutingModule
+    RouterModule.forChild([{ path: '', component: LoginUPage }])
   ],
   declarations: [LoginUPage]
 })
